@@ -21,6 +21,7 @@ public class baek_1620 {
 		HashMap<String,Integer> nameMap = new HashMap<String,Integer>();
 		
 		String[] arr =new String[N+1];
+		
 		StringBuilder sb = new StringBuilder();
 		
 		
