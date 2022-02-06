@@ -1,5 +1,8 @@
 package programmers;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 //https://programmers.co.kr/learn/courses/30/lessons/81301
 
 public class lev_1_81301 {
@@ -73,8 +76,6 @@ public class lev_1_81301 {
 	                    break;
 	            }
 	        }
-
-	       
 	        
 	        return answer;
 	    }
