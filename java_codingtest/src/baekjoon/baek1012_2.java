@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+//큐로 푸는거 
 public class baek1012_2 {
 
 
