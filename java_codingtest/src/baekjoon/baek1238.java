@@ -85,8 +85,9 @@ public class baek1238 {
 			cnt++;
 			
 			//모든 정점을 방문하면 종료
-			if(cnt==N)
+			if(cnt==N) {
 				break;
+			}
 			
 			for(Node tmp = adjList[cur.num];tmp!=null;tmp=tmp.next) {
 				
@@ -96,7 +97,6 @@ public class baek1238 {
 				}
 			}
 		}
-//		System.out.println(Arrays.toString(distance));
 		//각 정점들에서 시작해서 X로 도착
 		for(int i=1;i<=N;i++) {
 			if(i==X)
@@ -134,7 +134,6 @@ public class baek1238 {
 					}
 				}
 			}
-//			System.out.println(Arrays.toString(dis));
 			ans = Math.max(ans, dis[X]);
 		}
 		
