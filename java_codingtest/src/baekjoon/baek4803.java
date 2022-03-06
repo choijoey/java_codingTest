@@ -39,11 +39,8 @@ public class baek4803 {
 
 		//루트 겹침
 		if(a==b) {
-			for(int i=1;i<=N;i++) {
-				//그래프가 아니게 되니까 연결된 그래프는 전부 0처리
-				if(findSet(i)==a)
-					node[i]=0;
-			}
+			node[a] =0;
+			node[b]=0;
 		}
 		else {
 			//만약 루트가 다르지만 b가 연결된 그래프가 사이클이 있는경우
