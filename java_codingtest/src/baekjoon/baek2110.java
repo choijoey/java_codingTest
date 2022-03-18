@@ -33,12 +33,12 @@ public class baek2110 {
 		int high =list[N-1]; //최대값 배열 끝 값
 		int mid=0;
 		
+		
 		while(low<high) {
 			mid = low+(high-low+1)/2; //mid 값 중 최대값 찾아야 함 
 			
-			
-			int cur =list[0];
 			int cnt=1;
+			int cur =list[0];
 			for(int i=1;i<N;i++) {
 				if(list[i]-cur <mid)
 					continue;
@@ -46,6 +46,8 @@ public class baek2110 {
 					cur=list[i];
 					cnt++;
 				}
+				if(cnt>=C)
+					break;
 			}
 			if(cnt <C) {
 				high = mid-1;
