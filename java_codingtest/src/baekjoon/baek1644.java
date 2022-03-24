@@ -7,7 +7,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
 
-//시간 복잡도 O(N)
+// O(n log log n)
+
 public class baek1644 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -24,7 +25,7 @@ public class baek1644 {
 		int[] prime = new int[4000001];//소수집합
 		int end =0; // 마지막 idx
 
-		//소수 구하는 에라토스테네스체  시간복잡도 -> N (최종적으로는 2~ N까지 한번만 탐색)
+		//소수 구하는 에라토스테네스체  시간복잡도 ->  O(n log log n) 라네요... (https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes#Algorithm_complexity)
 		for(int i=2;i<=N;i++) {
 			if(!list[i]) {
 				int j =2;
@@ -46,22 +47,15 @@ public class baek1644 {
 			//투포인터 시간복잡도 N
 			int st=0;
 			int en=0;
-			int sum = prime[st]; //초기값
-			while(true) {
-
+			int sum = 0; //초기값
+			while(en<=end) {
 				if(sum<N) {
-					en++;
-					if(en==end)
-						break;
-					sum+= prime[en];
+					sum+= prime[en++];
 				}
 				else{
 					if(sum==N) //정답
 						ans++;
-					sum-=prime[st];
-					st++;
-					if(st==end)
-						break;
+					sum-=prime[st++];
 				}
 			}
 		}
