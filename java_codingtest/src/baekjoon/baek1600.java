@@ -18,12 +18,13 @@ public class baek1600 {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
 
-		int K = Integer.parseInt(br.readLine());
+		int K = Integer.parseInt(br.readLine());//점프 가능 횟수
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int M = Integer.parseInt(st.nextToken());
 		int N = Integer.parseInt(st.nextToken());
+		
 		int[][] map = new int[N][M];
-		int[][][] v = new int[N][M][K+1];
+		int[][][] v = new int[N][M][K+1];//상태 배열 (점프 가능 횟수도 표시하기 위해 3차원 배열 사용)
 		
 		
 
@@ -62,7 +63,7 @@ public class baek1600 {
 						continue;
 					if(map[ny][nx]==1)
 						continue;
-					if(N-1==ny && M-1==nx) {
+					if(N-1==ny && M-1==nx) {//목표지점 도달시 종료
 						ans = v[cur[0]][cur[1]][cur[2]]+1;
 						break outer;
 					}
@@ -82,7 +83,7 @@ public class baek1600 {
 					continue;
 				if(map[ny][nx]==1)
 					continue;
-				if(N-1==ny && M-1==nx) {
+				if(N-1==ny && M-1==nx) {//목표지점 도달시 종료
 					ans = v[cur[0]][cur[1]][cur[2]]+1;
 					break outer;
 				}
@@ -93,7 +94,7 @@ public class baek1600 {
 		}
 		
 		
-		if(N==1 && M==1)
+		if(N==1 && M==1)//배열 크기가 1,1 일 경우 정답=> 0
 			ans=0;
 
 		
