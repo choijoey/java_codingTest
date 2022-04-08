@@ -21,7 +21,7 @@ public class baek2468 {
 
 		N = Integer.parseInt(br.readLine());
 
-		map = new int[N+2][N+2];
+		map = new int[N+2][N+2];//배열 크기를 늘려서 탐색 줄임 
 		v = new boolean[N+2][N+2];
 		int mh = 0;
 		
@@ -33,7 +33,7 @@ public class baek2468 {
 			}
 		}
 
-		for(int i=0;i<=mh;i++) {
+		for(int i=0;i<=mh;i++) {//봉우리 최대값을 구해서 매번 DFS 실행
 			ans = Math.max(ans, DFS(i));
 		}
 		

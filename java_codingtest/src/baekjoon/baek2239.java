@@ -23,9 +23,9 @@ public class baek2239 {
 		
 		map = new int[N][N];
 		
-		row = new boolean[N][N+1];
-		col = new boolean[N][N+1];
-		square = new boolean[N][N+1];
+		row = new boolean[N][N+1];//행 1~9 값 저장
+		col = new boolean[N][N+1];//열 1~9 값 저장
+		square = new boolean[N][N+1];// 작은 3x3 사각형 값 저장
 		
 		String s = null;
 		
@@ -37,7 +37,7 @@ public class baek2239 {
 				row[i][map[i][j]]=true;
 				col[j][map[i][j]]=true;
 				
-				int squareIdx=(i/3)*3+(j/3);
+				int squareIdx=(i/3)*3+(j/3); // 작은 사각형 좌표 계산 
 				square[squareIdx][map[i][j]]=true;
 			}
 		}
@@ -46,7 +46,7 @@ public class baek2239 {
 			
 	}
 	
-	static boolean dfs(int cnt) {
+	static boolean dfs(int cnt) { //각 칸마다 행 열 사각형 조건에 맞는지 확인하고 재귀 호출한다음 원상태로 복구
 		
 		if(cnt == 81) {
 			for(int i=0;i<9;i++) {

@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
 
 public class beak4179 {
 
-	static class Node{
+	static class Node{ //좌표 , J 인지 F인지 저장 
 		int y;
 		int x;
 		char state;
@@ -35,6 +35,7 @@ public class beak4179 {
 
 		char[][] map = new char[N+2][M+2];
 
+		//맵을 한칸씩 늘려서 주위를 벽으로 침 
 		for(int i=0;i<M+2;i++) {
 			map[0][i]=map[N+1][i]='#';
 		}
@@ -58,10 +59,13 @@ public class beak4179 {
 					queue.offer(new Node(i,j,map[i][j]));
 			}
 		}
+		
+		//시작부터 종료 상황이면 1출력하고 종료
 		if(c.y==N||c.y==1||c.x==M||c.x==1) {
 			System.out.println(1);
 			return;
 		}
+		//J를 스텍에 나중에 입력
 		queue.offer(c);
 		map[c.y][c.x]='D';
 		
@@ -69,7 +73,7 @@ public class beak4179 {
 		int[] dy = {0,0,1,-1};
 		int[] dx = {1,-1,0,0};
 
-		int level=1;
+		int level=1;//시간
 		boolean flag = false;
 
 		outer:while(!queue.isEmpty()) {
@@ -85,19 +89,19 @@ public class beak4179 {
 					int ny= cur.y+dy[j];
 					int nx= cur.x+dx[j];
 
-					if(map[ny][nx]=='#'||map[ny][nx]=='F')
+					if(map[ny][nx]=='#'||map[ny][nx]=='F')//벽이거나 불을 만나면 스킵
 						continue;
-					if(cur.state=='J'&&map[ny][nx]=='D')
+					if(cur.state=='J'&&map[ny][nx]=='D')//J가 이전에 갔던곳은 스킵 (J만)
 						continue;
-					if(cur.state=='J'&&(ny==N||ny==1||nx==M||nx==1)) {
+					if(cur.state=='J'&&(ny==N||ny==1||nx==M||nx==1)) {//J 종료조건
 						level++;
 						flag =true;
 						break outer;
 					}	
-					if(cur.state=='J')
+					if(cur.state=='J')//J가 지나간곳은 D로 변경
 						map[ny][nx] = 'D';
 					else
-						map[ny][nx]=cur.state;
+						map[ny][nx]=cur.state;//F가 지나간 곳은 F로 변경
 					queue.offer(new Node(ny,nx,cur.state));
 				}
 			}
