@@ -40,7 +40,7 @@ public class baek17143 {
 		BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		
-		System.out.println(-3%10);
+		
 		st = new StringTokenizer(br.readLine());
 		
 		R = Integer.parseInt(st.nextToken());
