@@ -9,6 +9,8 @@ import java.util.StringTokenizer;
 
 public class baek11404 {
 
+	//플로이드 워셜 O(V^3)
+	//http://boj.kr/957ee444aab340dda843c083974a757b
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		// TODO Auto-generated method stub
 
@@ -61,6 +63,8 @@ public class baek11404 {
 		for(int i=0;i<N;i++) {
 			sb = new StringBuilder();
 			for(int j=0;j<N;j++) {
+				if(map[i][j]==INF)
+					map[i][j] =0;
 				sb.append(map[i][j]).append(" ");
 			}
 			bw.write(sb.toString().trim());
