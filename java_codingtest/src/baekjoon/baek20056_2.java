@@ -8,6 +8,10 @@ import java.util.Queue;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
+//http://boj.kr/809871ef55a548ac8deb39bfa61add29
+//첫번째 풀이 후 다른 코드를 참고해서 수정해봤다
+//파이어볼을 움직이는 과정에서 맵 탐색을 하지 않기때문에 훨씬 빠르다
+//Ball 객체의 spread와 cnt 그리고 맵을 언제 초기화 시켜야 하는지가 관건인것 같다
 public class baek20056_2 {
 
 	static class Ball{
