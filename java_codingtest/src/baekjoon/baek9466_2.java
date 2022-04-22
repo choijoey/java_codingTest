@@ -12,7 +12,7 @@ public class baek9466_2 {
 
 	//DFS를 이용한 사이클 탐색
 	//노드마다 엣지가 하나라 클래스를 따로 만들 필요가 없다는걸 풀고 나서 알았다...
-	
+	//http://boj.kr/933b5aa6e6cc4eda8e27897168a0d34a
 	static int[] adjList;//인접리스트
 	static boolean[] v;//방문체크
 	static boolean[] recurStack;//DFS 탐색 경로 저장
