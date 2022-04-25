@@ -36,13 +36,14 @@ public class baek9466 {
 		Queue<Integer> queue;
 		Node[] adjList;//인접리스트
 		
+		
 		for(int tc=1;tc<=TC;tc++) {
 			int N = Integer.parseInt(br.readLine());
 			
 			indeg=new int[N];
 			queue = new LinkedList<>();
 			adjList = new Node[N];
-			
+			int ans =0; //정답
 			st = new StringTokenizer(br.readLine());
 			
 			for(int i=0;i<N;i++) {
@@ -52,8 +53,10 @@ public class baek9466 {
 			}
 			
 			for(int i=0;i<N;i++) {
-				if(indeg[i]==0)
+				if(indeg[i]==0) {
 					queue.offer(i);//진입차수가 0인 노드를 큐에 담는다
+					ans++;
+				}
 			}
 			
 			
@@ -66,18 +69,14 @@ public class baek9466 {
 					
 					if(indeg[tmp.num]==0) {
 						queue.offer(tmp.num);
+						ans++;
 					}
 				}
 				
 			}
 			
-			int ans =0; //정답
-			
-			for(int i=0;i<N;i++) {
-				if(indeg[i]!=0)
-					ans++;
-			}
-			System.out.println(N-ans);
+
+			System.out.println(ans);
 		}
 	}
 

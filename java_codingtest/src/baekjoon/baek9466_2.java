@@ -63,8 +63,10 @@ public class baek9466_2 {
 			
 			ans++;//자기자신 카운트
 			
-			for(int i=adjList[node];i!=node;i=adjList[i])
+			for(int i=adjList[node];i!=node;i=adjList[i]) {
+				v[i]=true;//사이클 탐색 과정에서도 방문체크 하게끔 수정
 				ans++;
+			}
 			return;
 		}
 		if(v[node])
