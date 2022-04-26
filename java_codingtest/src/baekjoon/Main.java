@@ -1,84 +1,65 @@
 package baekjoon;
-import java.io.*;
-import java.util.StringTokenizer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.StringTokenizer;
 
 public class Main {
-	//98퍼에서 실패.. 
-	static int N, M;
-	static int[][] distance;
+	static int[] tree = new int[999_999_999];
 
-	public static void main(String[] args) throws IOException, NumberFormatException {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		N = Integer.parseInt(br.readLine()); // 도시의 개수
-		M = Integer.parseInt(br.readLine()); // 버스의 개수
 
-		StringTokenizer st;
-		distance = new int[N][N];
-		
-		final int MAX = 999_999_999;
-		
-		// 거리 배열 초기화
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				if (i == j) {
-					distance[i][j] = 0;
-					continue;
-				}
-				distance[i][j] = MAX;
+		// 전위 순회 --> 후위 순회
+		// Root L R (전위 순회) -->
+		// L R Root (후위 순회)
+
+		// 완전 이진 트리 생성
+		String input;
+		while (true) {
+			input = br.readLine();
+
+			// 입력 아무것도 없으면 탈출
+			if (input == null || input.equals("")) {
+				break;
 			}
+			int num = Integer.parseInt(input);
+			insert(num);
 		}
 
-		// 입력 받음
-		for (int i = 0; i < M; i++) {
-			st = new StringTokenizer(br.readLine());
-			// 도시 번호가 1부터 시작하니까 1을 빼줬음!
-			int from = Integer.parseInt(st.nextToken()) - 1;
-			int to = Integer.parseInt(st.nextToken()) - 1;
-			int weight = Integer.parseInt(st.nextToken());
-			// 같은 도시 출발, 도착인 버스가 두개 이상일 수 있음(노선 두개 이상)
-			// 최소 비용을 저장한다
-			distance[from][to] = Math.min(distance[from][to], weight);
-		}
-		// input END
-
-		// 플로이드-와샬
-		for (int k = 0; k < N; k++) {
-			for (int i = 0; i < N; i++) {
-				for (int j = 0; j < N; j++) {
-					// k를 거쳐서 가는 비용이 더 적으면 그걸로 갱신
-					distance[i][j] = Math.min(distance[i][j], distance[i][k] + distance[k][j]);
-				}
-			}
-		}
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				// 갈 수 없는 경우 0 출력
-				if (distance[i][j] >= MAX) {
-					sb.append("0" + " ");
-					continue;
-				}
-				sb.append(distance[i][j] + " ");
-			}
-			sb.append("\n");
-		}
-		System.out.println(sb.toString());
-
+		// 트리 완성
+		postOrder(1);
 	}
 
+	public static void insert(int num) {
+		int curNode = 1; // 루트 노드부터 탐색 시작
+		while (true) { // 삽입 가능한 위치까지 찾음
+			if (tree[curNode] == 0) {
+				break;
+			}
+			if (num > tree[curNode]) {
+				curNode = curNode * 2 + 1;
+			}
+
+			if (num < tree[curNode]) {
+				curNode = curNode * 2;
+			}
+		}
+		tree[curNode] = num;
+	}
+
+	public static void postOrder(int n) {
+//		System.out.println("N : " + tree[n] + " left : " + tree[n * 2] + " right : " + tree[n * 2 + 1]);
+		
+		if(tree[n]==0)
+			return;
+		if (tree[n * 2] != 0) {
+			postOrder(n * 2);
+		}
+		if (tree[n * 2 + 1] != 0) {
+			postOrder(n * 2 + 1);
+		}
+		System.out.println(tree[n]);
+
+	}
 }
