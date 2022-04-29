@@ -19,9 +19,11 @@ public class baek1194 {
 	//http://boj.kr/ac520943ed12466492f9d128b7e4a774
 	
 	//다른 풀이보니까 그냥 3차원 배열을 [N][M][키의 모든 상태 2^6=64]으로 해도 해결이 된다.
-	//괜히 메모리초과날까봐 개쫄아서 다른풀이를 생각하느라 제 시간안에 못 푼 원인인것 같다.
-	//https://syh39.github.io/algorithm/algorithm_2/
-	//다음에는 공간복잡도도 계산해서 풀어야겠다.
+	//괜히 메모리초과날까봐 다른풀이를 생각하느라 제 시간안에 못 푼 원인인것 같다.
+	//직접 계산해보니 3차원배열 크게 잡아도 50*50*100 250000로 1MB도 안된다. 
+	//1Byte *10^6 = 1MB = 1KB *10^3
+	//다음에는 메모리초과 생각하기 전에 공간복잡도를 계산해 봐야겠다.
+	//http://boj.kr/b72c8365c7c04e6cb6f502688f143d85
 	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
@@ -50,6 +52,7 @@ public class baek1194 {
 				}
 			}
 		}
+		
 		
 		//벽 두르기
 		for(int i=0;i<N+2;i++) {
@@ -119,4 +122,5 @@ public class baek1194 {
 		}
 		System.out.println(ans);
 	}
+
 }
