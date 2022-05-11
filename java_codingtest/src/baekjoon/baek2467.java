@@ -42,26 +42,19 @@ public class baek2467 {
 		while(start<end) {//포인터가 만나면 종료
 			int sum = list[start]+list[end]; //최대값이 20억을 넘지 않으므로 int 가능
 
-			if(sum>0) {
-				if(sum<min) {
-					ans1=list[start];
-					ans2=list[end];
-					min=sum;
-				}
-				end--;
-			}else if(sum<0) {
-				sum= -sum;
-				if(sum<min) {
-					ans1=list[start];
-					ans2=list[end];
-					min=sum;
-				}
-				start++;
-			}else {//sum==0
+			int tmp= Math.abs(sum);
+			if(tmp<min) {
 				ans1=list[start];
 				ans2=list[end];
-				break;
+				min=tmp;
 			}
+			if(sum>0)
+				end--;
+			else if(sum<0)
+				start++;
+			
+			if(min==0)
+				break;
 		}
 		System.out.print(ans1+" "+ans2);
 	}
