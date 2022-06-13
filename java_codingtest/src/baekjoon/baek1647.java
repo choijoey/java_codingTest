@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
+//http://boj.kr/fe7c9b28a7234289973c9ff0d9d7f18f
+
 public class baek1647 {
 
 	static int[] par;

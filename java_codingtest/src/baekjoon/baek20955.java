@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+//http://boj.kr/843f87b938b849b38cf3be0f93708f6d
+
 public class baek20955 {
 	static int[] par;
 	static void makeSet(int N) {
