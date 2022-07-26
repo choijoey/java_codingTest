@@ -3,6 +3,7 @@ package codeTree.day01;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -22,17 +23,8 @@ public class Main3 {
 		int N = Integer.parseInt(br.readLine());//원소 갯수
 		
 		Map<String,Integer> map = new TreeMap<>();
-		TreeSet<Integer> set = new TreeSet<>();
 		
-		set.add(3);
-		set.add(4);
-		set.add(6);
-		set.add(8);
-		set.add(10);
 		
-		System.out.println(set.higher(5));
-		System.out.println(set.lower(5));
-
 		for(int i=0;i<N;i++) {
 			String s = br.readLine();
 			
