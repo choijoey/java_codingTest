@@ -3,17 +3,17 @@ package programmers;
 import java.util.*;
 
 //https://programmers.co.kr/learn/courses/30/lessons/72410
-class Solution {
+class lev_1kakao2 {
     public String solution(String new_id) {
         String answer = "";
         
         
 
-        //1´Ü°è
+        //1ï¿½Ü°ï¿½
         new_id =new_id.toLowerCase();
         
 
-        //2´Ü°è
+        //2ï¿½Ü°ï¿½
         String s ="";
         
         for(int i=0;i<new_id.length();i++ ){
@@ -27,12 +27,12 @@ class Solution {
         new_id = s; 
 
         
-        //3´Ü°è
+        //3ï¿½Ü°ï¿½
         while(new_id.contains("..")){
             new_id = new_id.replace("..","."); 
         }
 
-        //4´Ü°è
+        //4ï¿½Ü°ï¿½
         s="";
 
         for(int i=0; i<new_id.length();i++){
@@ -46,11 +46,11 @@ class Solution {
         new_id = s;
         
 
-        //5 ´Ü°è
+        //5 ï¿½Ü°ï¿½
         if(new_id.length() == 0)
             new_id+='a';
 
-        //6 ´Ü°è
+        //6 ï¿½Ü°ï¿½
         
         s="";
         if(new_id.length() >=16){
@@ -62,7 +62,7 @@ class Solution {
             new_id=s;
         }
 
-        //7 ´Ü°è
+        //7 ï¿½Ü°ï¿½
         answer = new_id;
         
         if(new_id.length() <=2){
