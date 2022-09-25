@@ -109,6 +109,7 @@ public class baek_17406 {
 			for(int i=0;i<K;i++) {
 				rotate(li[orderList[i]]); // 순열의 순서대로 연산 시작
 			}
+			
 			cal(); // 연산 후 점수 계산
 			map = tmp; // 바뀐 맵 초기화 
 			return;
